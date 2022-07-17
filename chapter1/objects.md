@@ -274,8 +274,58 @@ The unpacking could be realised with any iterable type.
 ```py
 #This could be made in loop as well.
 for x,y in [(7,2),(5,8),(6,4)]
+for x,y in myMap.items()
 ```
 
-The last page whas 66 
+#### Simultaneous Assignments
 
+- Ex. `x,y,z = 6,5,3`
+The right-hand side is first converted to a tuple, and then unpackaged.
+* This give us the swapping advantage, ` x,y = x,y`
+```py
+temp = x
+x = y 
+y = temp
+```
+Is saving us the temp stuff.
 
+#### Scopes and names
+
+* Namespace : Variables, functions, classes of the current scope. Is a dict(python dictionary) of the objects of the current scope.
+Python implements a namespace with its own dictionary that maps each identifying string (e.g., n ) to its associated value.
+- To know the variables of the current scope we use the `dir()` method, which returns the current scope variables.
+- To know the entire dictionary we use `vars()` method, is the dir() complete version.
+
+#### First class objects
+
+Instances that can be assigned to an identifier, passead as a parameter or returned by a function.
+
+```py
+scream = print
+scream( "hello" )
+#For example in max()
+max( a , b , key=abs )
+#key is an identifier assigned to the function abs
+```
+
+The scream example, now, it's introduced to the current namespace/scope with its value being the object `<build-in function print>`.
+- The same concept is with classes.
+
+#### Modules and import statement
+
+Python's **import** statement loads object definitions from a module into the current namespace.
+
+Even that namespace ~= scope because sometimes they mean something different.
+* Please avoid the `from module import *` statement because it could cause objects' name conflict.
+A module also is an object, namely first-class object.
+* with `import math` we can avoid objects' name conflicts.
+* Top-level commands : Anything with 0 identation.
+* In python top-level statements are named as `__main__`. Even the inner functions are executed in the top-level scope `__main__`.
+* `__name__` contains the scope of the code being executed as a string.
+* `if __name__ = __main__:` : is a construct that embeds command within the module if the module is invoked as a script but not when the module is importent from another script.
+
+#### Pseudo-Random Number generation
+
+* `seed` is the place where the random number generator starts, the sequence generaterd for a given seed will always be the same.
+- `choice(data)` returns a random element of the given sequence.
+- `shuffle(data)` reorders pseudo-randomly.
