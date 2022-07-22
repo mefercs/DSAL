@@ -56,6 +56,7 @@ That means each object of that class have a fixed value upon Instantiation.Altou
 |set||
 |frozenset|x|
 |dict||
+|chr|x|
 
 #### Bool class
 
