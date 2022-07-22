@@ -29,3 +29,24 @@ first, *middle, last = "Hello World"
 - **unit testing** when we first test elements that doesn't depend in other ones, that is, test components in isolation.
 One way to do unit testing in the same file is with `if __name__ == __main__` because it only executes code within the namespace that is executed in the directly on that module.
 - The simplest technique for debuggin is with print statements
+
+# Classes
+- `self` serves to identify the current instance of a class.
+- We call **accessors** to the members that allow us to read a class property.
+
+## operator overloading
+To summarize the built-in classes have define some  operators, for example the int class have defined the `+` operator, when we add 2 numbers the operator
+will return the sum, but when we define a new class is **undefined** but we can give it a definition with the technique called **operator overloa**.
+- `__add__` is the name of the method to overload the `+` operator.
+When we use the `+` in an int instance called a, and we add it an instance b
+```py
+a + b #returns the sum -> common syntax
+a.__add__(b) #returns the sum -> special method form
+a.__radd__(b) #This stands for right add, and applies for all the overload functions
+# It 'intverts' the function instead of a+b uses b+a
+```
+## NON - operator overloading
+For example with str(foo), we can define a method `__str__()` in foo, which returns a str() adapted string to portray the class.
+We need to take care of the `__bool__`.
+
+<img src="https://imgs.search.brave.com/S1H4_Ib5RLJF04nx8K5VJJr864MkbZqGzOmSZ0ol8n0/rs:fit:331:390:1/g:ce/aHR0cHM6Ly9kb3Ru/ZXR0dXRvcmlhbHMu/bmV0L3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDIwLzA3L3dvcmQt/aW1hZ2UtMTI2LnBu/Zw"> 
