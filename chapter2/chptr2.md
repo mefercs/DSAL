@@ -51,4 +51,10 @@ We need to take care of the `__bool__`, because when `__len__` is defined, `if b
 - If we try to use a particular special method on a user-defined class, the standard sytax that relies upon that method will raise an exception.
 <img src="https://imgs.search.brave.com/S1H4_Ib5RLJF04nx8K5VJJr864MkbZqGzOmSZ0ol8n0/rs:fit:331:390:1/g:ce/aHR0cHM6Ly9kb3Ru/ZXR0dXRvcmlhbHMu/bmV0L3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDIwLzA3L3dvcmQt/aW1hZ2UtMTI2LnBu/Zw"> 
 
-- last page 77 in okular
+## Python's exception herarchy and inheritance
+The ultra father is `BaseException` where all the error derivate.
+
+- To create a class inherintance we use `Class ClassName( ParentClass ):`
+  - in the `def __init__` we declare the same variables as `ParentClass` with the `ClassName` variables and with the `super.__init__()` we initialize the `ParentClass` variables, then we use `self.var` to initialize the Child fields.
+  - To call a Parent class member we can use `super().member()`.
+
