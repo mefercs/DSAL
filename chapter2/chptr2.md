@@ -1,6 +1,14 @@
 # Object oriented 
-
+- instance variables : created with self. 
+- class variables : defined in the class namespace.
+- `__init__` is a method executed as soon as an object of a class is instantiated.
+- Protected member uses a single underscore `_memberName`
+- Private member uses double underscores `__memberName`
 In python there is a similar spread operator as JS( ... ), called splat operator ( * ), and it is used to package and unpackage values.
+- `_` allow us to throw values we are not going to use. Also in numbers literals(instantiation) we can use it for readability.
+  - i.e. `x = 10_000_000_000`
+- `__` is for only class use, because it tells the python interpreter to rewrite the name to avoid conflict with a subclass.
+  - so, python interpreter changes the `__originalName` to `_className__originalName` this is known as the Mangling this is known as the Mangling.
 
 ```py
 #unpacke example
@@ -55,6 +63,35 @@ We need to take care of the `__bool__`, because when `__len__` is defined, `if b
 The ultra father is `BaseException` where all the error derivate.
 
 - To create a class inherintance we use `Class ClassName( ParentClass ):`
-  - in the `def __init__` we declare the same variables as `ParentClass` with the `ClassName` variables and with the `super.__init__()` we initialize the `ParentClass` variables, then we use `self.var` to initialize the Child fields.
+  - in the `def __init__` we declare the same variables as `ParentClass` with the `ClassName` variables and with the `super().__init__()` we initialize the `ParentClass` variables, then we use `self.var` to initialize the Child fields.
   - To call a Parent class member we can use `super().member()`.
 
+## Abstract base classes
+A class that serves as a blueprint for other classes. And cannot be instantiated.
+- We can use Abstract base clasess with the `import abc`
+With the `metaclass = ABCMeta` we can create an ABC, and with the `@Abstractmethod` decorator we can leave a
+abc's method empty because it'll take an inherint implementation.
+
+## Namespaces and Object-orientation
+
+- **NAMESPACE** It's an abstraction that manages the identifiers defined in a particular scope.
+- **self** causes to instroduce a identifier to the instance namespace, it stablish the entries.
+- Mutable object are shared within inherinted classes until you reassign that mutable object. And you lost sharing when you reassign the mutable object.
+  - This also happens with immutables, but as they are treated different.
+- **Class data member** : Is a variable that share all the instances of that class, it can be accessed with `ClassName.identifier`
+- Python uses a different mechanism to represent instance namespaces to avoid the use of an auxiliary dictionary.
+  - we can declare the namespace identifiers with `__slot__ == "first","second" ...`, if we do so, the we'll need to add also a `__slot__` method in each subclass only with their respect member to avoid instance dictionaries.
+### Name resolution
+- First python search in **instance namespace** then in **class namespace** an so on in the inheritance hierarchy. if no value associated found, an attribute error is raised.
+
+## Shallow and deep copying
+
+- `=` only create an alias for an object identifier.
+- Shallow copy : because the new object created is not a object alias, now, is a reference to each object of the original object.
+  - It doesn't create a copy of its elements, only a reference.
+  - To create a new instance of a mutable class, instead of creating only the alias, we use the object constructor.
+    - i.e. `listCopy = list(originalList)`
+- Deep copy : An object with its own **copy** of element references.
+### copy module
+- copy.shallowcopy() : creates a shallow copy of its arguments.
+- copy.deepcopy() : creates a deep copy of its arguments.
