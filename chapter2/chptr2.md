@@ -4,7 +4,7 @@
 - `__init__` is a method executed as soon as an object of a class is instantiated.
 - Protected member uses a single underscore `_memberName`
 - Private member uses double underscores `__memberName`
-In python there is a similar spread operator as JS( ... ), called splat operator ( * ), and it is used to package and unpackage values.
+- In python there is a similar spread operator as JS( ... ), called splat operator ( * ), and it is used to package and unpackage values.
 - `_` allow us to throw values we are not going to use. Also in numbers literals(instantiation) we can use it for readability.
   - i.e. `x = 10_000_000_000`
 - `__` is for only class use, because it tells the python interpreter to rewrite the name to avoid conflict with a subclass.
