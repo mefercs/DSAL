@@ -28,3 +28,6 @@ Simple object creation
 ```js
 const createPerson = (name,age,gender)=>({name,age,gender})
 ```
+
+# Clousure
+A function has access to the context in which it was created. This is called closure.

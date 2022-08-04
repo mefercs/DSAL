@@ -22,3 +22,29 @@ it tends have a time complexity of $*O*(2^{n})$ which is one of the worst comple
 - The recursion depth of python is 1000.
   - but we can change it with the os module.
 - **Linear Recursion** : at most one recursive call per function.
+
+# Power O(log(n)) with recursion
+
+```py
+def power(x,n)->int:
+    if n==0: 
+        return 1
+    else:
+        partial = power(x,n//2)
+        result = partial * partial
+        if n%2==1: 
+            result*=x
+        return result
+```
+
+# Binary recursion
+When a function uses 2 recursive calls
+
+# Designing Recursive algorithms
+
+- Test for base cases: It should not be a recursive call.
+- Recur : It makes progress toward a base case.
+
+# Parameterizing a recursion 
+ 
+177 last page 
