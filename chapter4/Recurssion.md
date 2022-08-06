@@ -46,5 +46,10 @@ When a function uses 2 recursive calls
 - Recur : It makes progress toward a base case.
 
 # Parameterizing a recursion 
- 
-177 last page 
+This is importand because adding extra parameters can save us more memory, and gain more efficiency.
+
+# Tail recurssion
+Any tail recursion can be implemented in a loop.
+
+
+last was 180 of recurssion 
