@@ -18,3 +18,21 @@ For example `temp[2]=14`, this doesn't change the object in cell 3, it only chan
 > **shallow copy** : a list that references the same objects of other list.
 
 - The `list.extend(newList)` method from lists, only adds references to the original list. Thus `newList` and `list` share references.
+
+- Compact arrays have more benefits over referencial structures in terms of performance.
+Because there is no specific memory devoted to storage the sequence of memory references.
+- we get actual number of bytes being used for the primary storage of any object, we use the `getsizeof` function of the  `sys` module
+- With the `array` module we can create array type sequences. (Note they are not compact arrays, which can be created with the `ctypes` module)
+
+```py
+primes = array('i',[2,3,5,7,11,13,17]) #The 'i' means to indicate the type code.
+# In this case integers.
+```
+
+## Dynamic array
+Python's list follow this sleight hand, which always have a underlying array with a greater capacity than our actual lenght of the list.
+For example when we create a 5 python list, python have reserved an underlying array with 8 elements length. When the new list is initialized the older one is reclaimed by the system.
+- a 64-bit machine architecture, means  each memory address is a 64-bit number(i.e., 8 bytes)
+- We literally change replace a full fixed list for another with a large number of space for references and retrieve the old list to the system.
+
+
