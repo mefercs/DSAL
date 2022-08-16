@@ -31,3 +31,12 @@ const createPerson = (name,age,gender)=>({name,age,gender})
 
 # Clousure
 A function has access to the context in which it was created. This is called closure.
+
+# swap as python does
+```js
+let a = 3
+let b = 6
+
+[a,b] = [b,a]
+// a = 6 and b = 3
+```
