@@ -47,4 +47,9 @@ dequeue and enqueue methods.
 
 #### implement a queue
 - We can use an extra index(to implement this ADT), to follow the current front, and replacing a reference in the queue with a reference to `None`.
-- We can use an array circularly: We use a current index of the **front** and also the array should have a fixed length, which we'll use to create a circular behavior with the next formular $f=(f+1)$%length
+- We can use an array circularly: We use a current index of the f:**front** and also the array should have a fixed length, which we'll use to create a circular behavior with the next formular $f=(f+1)$%length
+  - The formula will loop when we pass the last index element, and start from 0.
+  - At the end we keep track of the `data`(reference to a list instance),`size`(current number of element within the QUEUE) and `front`(index of the first element of the QUEUE) variables.
+- `None` allows python to claim for unused memory. Because python internally have a references counts, and when this reaches zero the object is inaccessible, thus the system reclaims that memory for future use.
+- When resizing we reallocate our old data because the arithmetic formula could have flaws.
+* All the time complexities are O(1), except for `enqueue()` and `dequeue` which have an amortized O(1) but O(n) worst case.
