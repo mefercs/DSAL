@@ -20,9 +20,10 @@ class MyEmptyMethod(Exception): #Note it inherits from Exception class
 |---|---|
 |`S.push(e)`|`L.append(e)`|
 |`S.pop()`|`L.pop()`|
-|`S.top()`|`L[-1]`|
+|`S.top()`|`L[-1]` - is like the visualization |
 |`len(S)`|`len(L)`|
 |`S.is_empty()`|`len(L)==0`|
+
 The space usage for a stack ADT in implemented with a list in python is O(n), and the complexity times are the same as a normal list.
 
 ## Implementations
@@ -32,4 +33,18 @@ The space usage for a stack ADT in implemented with a list in python is O(n), an
 # QUEUES ADT
 
 - **FIFO (first-in, first-out) - this means the first with more time waiting in the queue will be returned.**
+The **access and deletion** -operations are restricted to the first element in the queue, and the **insert** operations is restricted to the back of the sequence.
 
+|Queue methods|Realization with python list|
+|---|---|
+|`Q.enqueue(e)`|`basic` - adds element at the end|
+|`Q.dequeue()`|`basic` - returns the first element of the front, or an error if the list is empty|
+|`Q.first()`| - Returns a reference to the first element|
+|`Q.is_empty()`| - true if is empty|
+|`len(Q)`| - Return the elements within|
+Implenting this ADT is more inneficient than a normal stack ADT, for example in a stack, the list contains the same lenght as the stack, but en queues, the python list can contain more elements than the queue, if we are often using 
+dequeue and enqueue methods.
+
+#### implement a queue
+- We can use an extra index(to implement this ADT), to follow the current front, and replacing a reference in the queue with a reference to `None`.
+- We can use an array circularly: We use a current index of the **front** and also the array should have a fixed length, which we'll use to create a circular behavior with the next formular $f=(f+1)%length$
