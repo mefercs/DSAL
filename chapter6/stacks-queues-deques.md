@@ -47,4 +47,4 @@ dequeue and enqueue methods.
 
 #### implement a queue
 - We can use an extra index(to implement this ADT), to follow the current front, and replacing a reference in the queue with a reference to `None`.
-- We can use an array circularly: We use a current index of the **front** and also the array should have a fixed length, which we'll use to create a circular behavior with the next formular $f=(f+1)%length$
+- We can use an array circularly: We use a current index of the **front** and also the array should have a fixed length, which we'll use to create a circular behavior with the next formular $f=(f+1)\pmodlength$
