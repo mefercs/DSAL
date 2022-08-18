@@ -53,3 +53,11 @@ dequeue and enqueue methods.
 - `None` allows python to claim for unused memory. Because python internally have a references counts, and when this reaches zero the object is inaccessible, thus the system reclaims that memory for future use.
 - When resizing we reallocate our old data because the arithmetic formula could have flaws.
 * All the time complexities are O(1), except for `enqueue()` and `dequeue` which have an amortized O(1) but O(n) worst case.
+* The space complexity is O(n)
+
+## Double ended queues ADT (also pronounce as DECK)
+- It's like a combination of a stack and a queue.
+Supports deletion and inserting in both, front and the back of the queue.
+
+
+- Last page was 247
