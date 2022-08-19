@@ -152,8 +152,8 @@ An identifier within a function has no relation with any identifier outside the 
 ## Return statement
 A return statement without an argument, returns the *None* value. If return statement no specified within a function, at the function's end a *None* will be returned.
 ### Information passing
-- Formal parameters : Identifiers with expected parameters.
-- Actual parameters : Parameters sent by the caller.
+- Formal parameters : Identifiers with expected parameters during the definition of the function.
+- Actual parameters : Parameters sent by the caller, when the function is invoked.
 `An advantage to Python’s mechanism for passing information to and from a
 function is that objects are not copied`, that means they are passed by reference, they can mutate the original data if they original data is passed as parameter.
 #### Mutable parameters.
