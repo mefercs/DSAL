@@ -173,7 +173,7 @@ assigning an actual parameter to a formal parameter by name.For example, with
 the above definition of function foo, a call foo(c=5) will invoke the function with
 parameters a=10, b=20, c=5.
 #### Built in functions
-- char() : is a character encoding
+- chr() : is a character encoding
 - round(), pow(), abs(), divmod()
 - reversed(), all(), any(), map()
 - iter(), next()
