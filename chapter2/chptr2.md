@@ -57,7 +57,7 @@ a.__radd__(b) #This stands for right add, and applies for all the overload funct
 For example with str(foo), we can define a method `__str__()` in foo, which returns a str() adapted string to portray the class.
 We need to take care of the `__bool__`, because when `__len__` is defined, `if bool(foo):` is evaluated, will base its return with the `__len__` method.
 - If we try to use a particular special method on a user-defined class, the standard sytax that relies upon that method will raise an exception.
-<img style="margin:0px auto"  src="https://imgs.search.brave.com/S1H4_Ib5RLJF04nx8K5VJJr864MkbZqGzOmSZ0ol8n0/rs:fit:331:390:1/g:ce/aHR0cHM6Ly9kb3Ru/ZXR0dXRvcmlhbHMu/bmV0L3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDIwLzA3L3dvcmQt/aW1hZ2UtMTI2LnBu/Zw"> 
+<img style="margin:0px auto;"  src="https://imgs.search.brave.com/S1H4_Ib5RLJF04nx8K5VJJr864MkbZqGzOmSZ0ol8n0/rs:fit:331:390:1/g:ce/aHR0cHM6Ly9kb3Ru/ZXR0dXRvcmlhbHMu/bmV0L3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDIwLzA3L3dvcmQt/aW1hZ2UtMTI2LnBu/Zw"> 
 
 ## Python's exception herarchy and inheritance
 The ultra father is `BaseException` where all the error derivate.
