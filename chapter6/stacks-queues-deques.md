@@ -50,7 +50,12 @@ dequeue and enqueue methods.
 
 <details>
 
-<summary>Adapted pattern with a list of a queue.</summary>
+<summary>Adapted pattern with a list of a circular queue.</summary>
+
+## Key variables
+1. data (where we store the values)
+2. size (Current elements count of our queue)
+3. front(current front index element)
 
 ```py
 class Empty(Exception):
@@ -124,3 +129,5 @@ DECK ADT accessors
 |`D.last()`|Retreive a reference, doesn't remove|
 |`D.is_empty()`| True if it's empty|
 |`len(D)`||
+
+
