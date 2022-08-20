@@ -49,7 +49,9 @@ dequeue and enqueue methods.
 #### implement a queue
 
 <details>
+
 <summary>Adapted pattern with a list of a queue.</summary>
+
 ```py
 class Empty(Exception):
     pass
