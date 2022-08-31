@@ -26,9 +26,18 @@ First we create a new Node instance, then we store the element's refenrce, and t
 #### Inserting a new node at the tail of the linked list. 
 First create the new Node and store its reference element, then assign its `next` reference to `None` instead a new node. after that, assign the `next` tail reference node to the new Created node, continue assigning now tail to the last node.
 
-266 was the last page
 
 # Circularly Linked Lists
+
+##implement a queue with a CLL
+As this ADT has a circular implementation, that connects the tail with the head to close the linked list, we only need the tail reference.
+|Variables of the CLL ADT| description|
+|---|---|
+|`_tail`| Reference to the tail node|
+|`_size`| Elements within the list|
+- When enqueue is called, a new node is placed just after the tail but before the current head, and then the new node becomes the tail.
+- It contains an additional method `rotate()`
+
 # Doubly Linked Lists
 # The positional list ADT
 # Sorting a Positional List
