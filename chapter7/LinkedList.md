@@ -27,9 +27,11 @@ First we create a new Node instance, then we store the element's refenrce, and t
 First create the new Node and store its reference element, then assign its `next` reference to `None` instead a new node. after that, assign the `next` tail reference node to the new Created node, continue assigning now tail to the last node.
 
 <details>
+
 <summary> 
 Circular Queue implementation
 </summary>
+
 ```py
 class Queue: 
     #We have defined the node class
@@ -64,8 +66,6 @@ class Queue:
         self._tail._next = oldNode._next
         self._size -=1
         print(f"Element removed ({value})")
-
-
 ```
 </details>
 
