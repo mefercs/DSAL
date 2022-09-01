@@ -84,5 +84,11 @@ As this ADT has a circular implementation, that connects the tail with the head 
 
 # Doubly Linked Lists
 
+Here we have `header` and `trailer` to reference the head and the tail of the list respectively which are known as **sentinels** because they have a `None` value assigned to prev(header) and next(trailer), and also `None` in their elements cells.. And here each node contains `_next,_prev and _element`.
+
+### Inserting and Deleting with a duoble linked list.
+
+ As a result of deletion, that node will no longer be considered part of the list and it can be reclaimed by the system.
+  
 # The positional list ADT
 # Sorting a Positional List
