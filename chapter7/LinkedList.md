@@ -26,10 +26,53 @@ First we create a new Node instance, then we store the element's refenrce, and t
 #### Inserting a new node at the tail of the linked list. 
 First create the new Node and store its reference element, then assign its `next` reference to `None` instead a new node. after that, assign the `next` tail reference node to the new Created node, continue assigning now tail to the last node.
 
+<details>
+<summary> 
+Circular Queue implementation
+</summary>
+```py
+class Queue: 
+    #We have defined the node class
+    class _Node:
+        __slots__ = "_element", "_next" #tuple literal instantiation
+        def __init__(self, element, next):
+            self._element = element 
+            self_next = next
+    def __init__(self): 
+        self._size = 0
+        self._tail = None 
+    def __len__(self):
+        return self._size 
+    def is_empty(self) : 
+        return self._size == 0
+    def enqueue(self, element):
+        node = self._Node( element, None )
+        if self.is_empty(): 
+            node._next = node
+        else: 
+            node._next = self._tail._next
+            self._tail._next = node
+        self._tail = node
+        self._size +=1
+        print( f"Enqueued ( {element} )" )
+    def dequeue(self): 
+        if self.is_empty(): 
+            print("The Queue is empty")
+            return
+        value = self._tail._next._element 
+        oldNode = self._tail._next
+        self._tail._next = oldNode._next
+        self._size -=1
+        print(f"Element removed ({value})")
+
+
+```
+</details>
 
 # Circularly Linked Lists
 
 ##implement a queue with a CLL
+
 As this ADT has a circular implementation, that connects the tail with the head to close the linked list, we only need the tail reference.
 |Variables of the CLL ADT| description|
 |---|---|
