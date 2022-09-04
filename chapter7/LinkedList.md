@@ -30,8 +30,6 @@ First create the new Node and store its reference element, then assign its `next
 
 ## implement a queue with a CLL
 
-``````
-
 <details>
 
 <summary> 
@@ -162,7 +160,6 @@ class LinkedDeque(_DoublyLinkedList):
             return
         return self._delete_node(self._trailer._prev)
 ```
-
  </details>
   
 # The positional list ADT
