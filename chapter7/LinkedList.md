@@ -100,9 +100,11 @@ class _Node:
 ```
 
 <details> 
+
 <summary> 
 This is the real basic structure that we need to follow
 </summary>
+
 ```py
 class _DoublyLinkedBase: 
     class _Node: 
@@ -237,13 +239,6 @@ The only method supported is `p.element()`, to delete an position element, we ju
 |`L.replace(p,e)`|Replace the element at position p with element e, returning the element formely at position p|
 |`L.delete(p)`|Remove and return the element at position p in L, invalidating the position|
 
-<details> 
-<summary>
-PositionalLinkedList base class
-</summary>
-```py
-```
-</details>
 
 
 #### Validating positions
