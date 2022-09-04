@@ -1,5 +1,5 @@
 Nodes are a lightweight object, that mantains a reference to other node/s in order to reprensent a linear order sequence.
-
+- Assingning to None variables helps the python garbage collector
 # Singly Linked Lists
 An node that stores a reference to an object and another node of the list, or it can reference None instead another node, if this is the list end.
 - We store also the `head` and the `tail`, we can identify the tail if that node has `None` as its Node reference.
@@ -85,6 +85,47 @@ As this ADT has a circular implementation, that connects the tail with the head 
 
 Here we have `header` and `trailer` to reference the head and the tail of the list respectively which are known as **sentinels** because they have a `None` value assigned to prev(header) and next(trailer), and also `None` in their elements cells.. And here each node contains `_next,_prev and _element`.
 
+<details> 
+<summary> 
+This is the real basic structure that we need to follow
+</summary>
+```js
+class _DoublyLinkedBase: 
+    class _Node: 
+        __slots__ = '_element','_prev','_next' #this is to stremaline the memory 
+        def __init__(self, element, prev, next): 
+            self._element = element
+            self._prev = prev
+            self._next = next
+    
+    def __init__(self): 
+        self._header = self._Node(None,None,None)
+        self._trailer= self._Node(None,None,None)
+        self._header._next = self._trailer
+        self._trailer._prev = self._header #here is the sentinels definition, pointing between themself
+        self._size = 0 
+    def __len__(self): 
+        return self._size
+    def is_empty(self): 
+        return self._size == 0
+    def _insert_between(self, e, predecessor, sucessor): 
+        newnode = self._Node(e, predecessor, sucessor)
+        predecessor._next = newnode
+        sucessor._prev = newnode
+        self._size +=1
+        return newnode
+    def _delete_node(self,node): 
+        element = node._element
+        predecessor = node._prev
+        sucessor = node._next
+        predecessor._next = sucessor
+        sucessor._prev =predecessor 
+        self._size -= 1
+        node._next = node._prev = node._element = None #helps the garbage collector
+        return element
+```
+</details>
+
 ### Inserting and Deleting with a duoble linked list.
 
  As a result of deletion, that node will no longer be considered part of the list and it can be reclaimed by the system( i.e. the python garbage collector ).
@@ -163,6 +204,84 @@ class LinkedDeque(_DoublyLinkedList):
  </details>
   
 # The positional list ADT
-Give us the ability to identify the location of an element.
+Give us the ability to identify the location of an element. The **position** acts as a marker or token within the broader positional List.
+The only method supported is `p.element()`, to delete an position element, we just invalidate that position assigning their values to `None`.
+- Now the first() and last() methods will return **position** instead of elements, and we can obtain that element using `L.first().element()`
+
+#### Validating positions 
+Each time the **PositionalList** class accepts a new position as a parameter, we want to verify that the position is valid, if so, determine the underlying node associated with the position. 
+
+#### Access and update methods
+<details>
+
+<summary>
+Implementation with the previous doubly linked list
+</summary>
+
+```py
+class PositionalList(_DoublyLinkedList):
+    #-----------nested positional class
+    class Position:
+        def __init__(self, container, node): 
+            self._container = container 
+            self._node = node
+        def element(self): 
+            return self._node._element
+        def __eq__(self,other): 
+            #return true if other is a position representing the same location
+            return type(other) is type(self) and other._node is self._node
+        def __ne__(self, other): 
+            return not (self==other)
+
+    def _validate(self, p): 
+        """Return position's node or raise an appropiate error if invalid"""
+        if not isinstance(p, self.Position): 
+            print("p must be proper position type")
+        if p._container is not self:
+            print('p does not belong this container')
+        if p._node._nest is None:
+            print('p is no longer valid')
+        return p._node
+
+    def _make_position(self, node): 
+        if node is self._header or node is self._trailer:
+            return None #sentinels, boundary violation
+        else:
+            return self.Position(self, node)
+    def first(self): 
+        return self._make_position(self._header._next)
+    def last(self): 
+        return self._make_position(self._trailer._prev)
+    def after(self,p): 
+        node = self._validate(p)
+        return self._make_position(node._next)
+    def __iter__(self):
+        cursor = self.first() 
+        while cursor is not None: 
+            yield cursor.element()
+            cursor = self.after(cursor)
+    def _insert_between(self, e, predecessor, sucessor): 
+        node = super()._insert_between(e, predecessor, sucessor)
+        return self._make_position(node)
+    def add_first(self, e): 
+        return self._insert_between(e, self._header, self._header._next)
+    def add_last(self,e): 
+        return self._insert_between(e, self._trailer._prev, self._trailer)
+    def add_before(self, p, e):
+        original = self._validate(p) 
+        return self._insert_between(e, original._prev, original)
+    def add_after(self, p, e): 
+        original = self._validate(p)
+        return self._insert_between(e, original, original._next)
+    def delete(self, p): 
+        original = self._validate(p)
+        return self._delete_node(original)
+    def replace(self,p,e):
+        original = self._validate._element
+        old_value = original._element
+        original._element = e 
+        return old_value
+```
+</details>
 
 # Sorting a Positional List
