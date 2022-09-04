@@ -129,7 +129,7 @@ class _DoublyLinkedList:
         self._size -=1
         node._prev = node._next = node._element = None
         return nodeElement
-//implementation of the base doubly list with a Deck
+#implementation of the base doubly list with a Deck
 class LinkedDeque(_DoublyLinkedList): 
     def first(self):
         if self.is_empty(): 
