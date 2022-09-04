@@ -1,4 +1,7 @@
 # Objects in Python
+
+With the `super()` we can gain access to methods that have been overwritten in a class object.
+
 <details>
 <summary>
 </summary>

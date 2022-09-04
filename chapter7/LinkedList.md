@@ -2,7 +2,7 @@ Nodes are a lightweight object, that mantains a reference to other node/s in ord
 
 # Singly Linked Lists
 An node that stores a reference to an object and another node of the list, or it can reference None instead another node, if this is the list end.
-- We store also the `head` and the `tail`, we can idenfity the tail if that node has `None` as its Node reference.
+- We store also the `head` and the `tail`, we can identify the tail if that node has `None` as its Node reference.
 - Traversing the list is also known as link hopping or pointer hopping.
 - It's common to store the tail reference and have a Node elements count(**size** of the list).
 - The times for an STACK ADP implementation are all constant worst cases, much better than a list implementation, and the space usage is the same `O(n)`
@@ -26,10 +26,11 @@ First we create a new Node instance, then we store the element's refenrce, and t
 #### Inserting a new node at the tail of the linked list. 
 First create the new Node and store its reference element, then assign its `next` reference to `None` instead a new node. after that, assign the `next` tail reference node to the new Created node, continue assigning now tail to the last node.
 
-
 # Circularly Linked Lists
 
 ## implement a queue with a CLL
+
+``````
 
 <details>
 
@@ -88,7 +89,83 @@ Here we have `header` and `trailer` to reference the head and the tail of the li
 
 ### Inserting and Deleting with a duoble linked list.
 
- As a result of deletion, that node will no longer be considered part of the list and it can be reclaimed by the system.
+ As a result of deletion, that node will no longer be considered part of the list and it can be reclaimed by the system( i.e. the python garbage collector ).
+
+ <details>
+
+ <summary>
+ Doubly linked list base class implementation with python
+ </summary>
+
+```py
+class _DoublyLinkedList: 
+
+    class _Node:
+        __slots__ = '_element','_next','_prev'
+        def __init__(self, element, prev, next):
+            self._next = next
+            self._element = element 
+            self._prev=prev
+    def __init__(self) -> None:
+        self._header = self._Node(None,None,None)
+        self._trailer= self._Node(None,None,None)
+        self._header._next = self._trailer
+        self._trailer._prev = self._header 
+        self._size = 0 
+    def __len__(self): 
+        return self._size
+    def is_empty(self) : 
+        return self._size == 0
+    def _insert_between(self, element, predecessor,sucessor):
+        newNode = self._Node(element, predecessor, sucessor)
+        predecessor._next = newNode
+        sucessor._prev = newNode
+        self._size +=1 
+        return newNode
+    def _delete_node(self, node):
+        previous = node._prev
+        nextNode = node._next
+        nodeElement = node._element 
+        previous._next = nextNode 
+        nextNode._prev = previous 
+        self._size -=1
+        node._prev = node._next = node._element = None
+        return nodeElement
+//implementation of the base doubly list with a Deck
+class LinkedDeque(_DoublyLinkedList): 
+    def first(self):
+        if self.is_empty(): 
+            print("The Deck is empty")
+            return 
+        print(f"View to first ({self._header._next._element})")
+        return self._header._next._element
+    def last(self): 
+        if self.is_empty():
+            print("The Deck is empty")
+            return 
+        print(f"View to last ({self._trailer._prev._element})")
+        return self._trailer._prev._element
+    def insert_first(self,element):
+        self._insert_between(element,self._header, self._header._next)
+        print(f"Element added at the begin ({element})")
+    def insert_last(self, element): 
+        self._insert_between(element, self._trailer._prev, self._trailer)
+        print(f"Element added at the end ({element})")
+    def delete_first(self): 
+        if self.is_empty(): 
+            print("The Deck is empty")
+            return
+        return self._delete_node(self._header._next)
+    def delete_last(self):
+        if self.is_empty(): 
+            print("The Deck is empty")
+            return
+        return self._delete_node(self._trailer._prev)
+```
+
+ </details>
   
 # The positional list ADT
+Give us the ability to identify the location of an element.
+
 # Sorting a Positional List
