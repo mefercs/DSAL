@@ -84,12 +84,26 @@ As this ADT has a circular implementation, that connects the tail with the head 
 # Doubly Linked Lists
 
 Here we have `header` and `trailer` to reference the head and the tail of the list respectively which are known as **sentinels** because they have a `None` value assigned to prev(header) and next(trailer), and also `None` in their elements cells.. And here each node contains `_next,_prev and _element`.
+- The base methods for the doubly linked list are: 
+  1. len(L)
+  2. is_empty() 
+  3. `_insert_between(element, previous_node, next_node)`
+  4. `_delete_node(node)`
+- and the base node implemenation is the next
+```py 
+class _Node:
+  __slots__ = '_element','_prev','_next'
+  def __init__(self, element, prev, next):
+    self._element = element
+    self._prev = prev
+    self._next = next
+```
 
 <details> 
 <summary> 
 This is the real basic structure that we need to follow
 </summary>
-```js
+```py
 class _DoublyLinkedBase: 
     class _Node: 
         __slots__ = '_element','_prev','_next' #this is to stremaline the memory 
@@ -207,13 +221,37 @@ class LinkedDeque(_DoublyLinkedList):
 Give us the ability to identify the location of an element. The **position** acts as a marker or token within the broader positional List.
 The only method supported is `p.element()`, to delete an position element, we just invalidate that position assigning their values to `None`.
 - Now the first() and last() methods will return **position** instead of elements, and we can obtain that element using `L.first().element()`
+- We work with positions, and not with elements directly as we did before in the Doubly linked lists.
 
-#### Validating positions 
+|method|action|
+|---|---|
+|`L.first()`|Return the position of the first element of L, or None if L is empty|
+|`L.last()`|Return the position of the last element of L, or None if L is empty|
+|`L.before(p)`|Return the position of the immediately before position p, or None if p is the first position|
+|`L.after(p)`|Return the position of L immediately after position p, or None if p is the last position|
+|`L.is_empty()`|Return True if L does not contain any elements|
+|`len(L)`|Return the number of elements in the list|
+|`iter(L)`|Return a forward iterator for the elements of the List|
+|`L.add_first(e)`|Insert a new element e at the front of L, returning the position of the new element|
+|`L.add_last(e)`|Insert a new elemen e just before position p in L, returning the position of the new element|
+|`L.replace(p,e)`|Replace the element at position p with element e, returning the element formely at position p|
+|`L.delete(p)`|Remove and return the element at position p in L, invalidating the position|
+
+<details> 
+<summary>
+PositionalLinkedList base class
+</summary>
+```py
+```
+</details>
+
+
+#### Validating positions
 Each time the **PositionalList** class accepts a new position as a parameter, we want to verify that the position is valid, if so, determine the underlying node associated with the position. 
 
 #### Access and update methods
-<details>
 
+<details>
 <summary>
 Implementation with the previous doubly linked list
 </summary>
