@@ -243,8 +243,11 @@ The only method supported is `p.element()`, to delete an position element, we ju
 
 #### Validating positions
 Each time the **PositionalList** class accepts a new position as a parameter, we want to verify that the position is valid, if so, determine the underlying node associated with the position. 
+- With the container reference we can robustly detect when a caller sends a position instance that does not belong to the indicated list.
 
 #### Access and update methods
+- The methods rely on the `_valitade` method to *unwrap* any position that is sent.
+- The methods also rely on the `_make_position` method to *wrap* nodes as Position instances to return to the user.
 
 <details>
 <summary>
@@ -318,3 +321,5 @@ class PositionalList(_DoublyLinkedList):
 </details>
 
 # Sorting a Positional List
+
+
