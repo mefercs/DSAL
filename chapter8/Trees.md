@@ -74,6 +74,15 @@ class Tree:
     def __len__(self): 
         """Total number of ELEMENTS of the Tree"""
         raise NotImplemented("must be implemented by subclass")
+    def is_root(self, p) -> bool: 
+        """True if Position p is the Root of the Tree"""
+        return self.root() == p
+    def is_leaf(self,p) -> bool: 
+        """True if position p doesn't have any children"""
+        return self.num_children(p) == 0
+    def is_empty(self):
+        """True if the tree is empty"""
+        return len(self) == 0
 ```
 
 </details>
