@@ -25,6 +25,7 @@ We define a tree using **Positions** that satisfy parent-child relationships of 
 |  |  |
 
 > Accessors 
+
 | Tree method | Meaning |
 |---|---|
 | `T.root()` | Return the Root position of T or None if empty |
