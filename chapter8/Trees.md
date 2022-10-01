@@ -17,13 +17,6 @@ Being a **tree** T, as a set of nodes storing element having a parent-child rela
 
 ### THE TREE ADT
 We define a tree using **Positions** that satisfy parent-child relationships of a tree.
-
-
-| Position Method | Meaning |
-|---|---|
-| `p.element()` | Return the element on stored on **p** |
-|  |  |
-
 Accessors methods for a tree
 
 | Tree method | Meaning |
@@ -86,3 +79,89 @@ class Tree:
 ```
 
 </details>
+
+### Depth and height
+
+- **DEPTH**: Number of ancestors of **p** excluding p itself(Being p a position of a node of a treee T).
+  - Recursively is defined by: 
+    1. If p is the root, then the depth of p is 0.
+    2. Otherwise, the depth of p is one plus the depth of the parent of p.
+  - Runs in O(n) worst case time, where n is the total number of nodes in a T branch.
+
+<details>
+<summary>implementation code</summary>
+```py
+def depth(self, p):
+  if self.is_root(p):
+    return 0 
+  else:
+    return 1 + self.depth( self.parent(p) )
+```
+</details>
+
+- **HEIGHT**:
+  - The height of a nonempty tree is the height of the *root* of T, with a position **p** we don't take in count the position itself.
+  - Recursively defined by: 
+    1. If p is a leaf, then the height of p is 0.
+    2. Otherwise, the height of p is one more than the maximum of the heights of p's children.
+
+
+## BINARY TREES
+
+Is an ordered tree with the following properties: 
+  - Every node has at most 2 children.
+  - Each child node is labeled as being either *left child* or a *right child*.
+  - A left child precedes a right child in the order of children of a node.
+- A binary tree is consired **full** or **proper** if its nodes has exactly 2 or 0 children, otherwise it's called improper.
+- An example is a **decision tree** which consists on yes/no questions.
+
+A binary tree Recursively consists on: 
+• A node r, called the root of T , that stores an element
+• A binary tree (possibly empty), called the left subtree of T
+• A binary tree (possibly empty), called the right subtree of T
+
+<details>
+<summary>Binary tree base class</summary>
+```py
+class BinaryTree(Tree): 
+    """Abstract base class representing a binary tree structure"""
+    def left(self,p): 
+        """Return a Position representing p's left child or None if p doesn't have a left child"""
+        raise NotImplementedError('must by implemented by a subclass')
+    def right(self,p): 
+        """Return a Position representing p's right child or None if p doesn't have a right child"""
+        raise NotImplementedError('must by implemented by a subclass')
+    def sibling(self, p): 
+        """Return a Position representing p's sibling (or None if no sibling)"""
+        parent = self.parent()
+        if parent is None:
+            return None #p is the root
+        else:
+            if p == self.left(parent):
+                return self.right(parent)
+            else:
+                return self.left(parent)
+    def children(self,p): 
+        """Generate an iteration of Position representing p's children"""
+        if self.left(p) is not None:
+            yield self.left(p)
+        if self.right(p) is not None:
+            yield self.right(p)
+```
+</details>
+
+### Binary tree Abstract data type
+
+|Method|Meaning|
+|---|---|
+| `T.left(p)` |Return the position of the left child of p, or None if p is empty|
+| `T.right(p)` |Return the position of the right child of p, or None if p is empty|
+| `T.sibling(p)` | Return the position of p's sibling, or None if p has no siblings|
+
+## IMPLEMENTING TREES
+
+## Linked Structure for binary trees
+
+> NODE REPRESENTATION
+
+Last page 318
