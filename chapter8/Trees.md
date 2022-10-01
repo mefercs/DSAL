@@ -26,7 +26,7 @@ Accessors methods for a tree
 | `T.parent(p)` | Return the parent of *p* or None if it's the root |
 | `T.num_children(p)` | Number of children of position *p* |
 | `T.children(p)` | Generate an iteration of the children of **p** |
-| `T.is_leat(p)` | True if *p* doesn't have any children |
+| `T.is_leaf(p)` | True if *p* doesn't have any children |
 | `len(T)` | Number of elements contained in **T** |
 | `T.positions()` | Generate an iteration of all **positions** of the tree **T** |
 | `iter(T)` | Generate an iteration of all **elements** stored within T |
@@ -89,7 +89,9 @@ class Tree:
   - Runs in O(n) worst case time, where n is the total number of nodes in a T branch.
 
 <details>
-<summary>implementation code</summary>
+
+<summary>Implementation code</summary>
+
 ```py
 def depth(self, p):
   if self.is_root(p):
@@ -164,4 +166,5 @@ class BinaryTree(Tree):
 
 > NODE REPRESENTATION
 
-Last page 318
+
+
