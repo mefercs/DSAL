@@ -123,7 +123,9 @@ A binary tree Recursively consists on:
 - A binary tree (possibly empty), called the right subtree of T
 
 <details>
+
 <summary>Binary tree base class</summary>
+
 ```py
 class BinaryTree(Tree): 
     """Abstract base class representing a binary tree structure"""
@@ -150,6 +152,7 @@ class BinaryTree(Tree):
         if self.right(p) is not None:
             yield self.right(p)
 ```
+
 </details>
 
 ### Binary tree Abstract data type
