@@ -118,9 +118,9 @@ Is an ordered tree with the following properties:
 - An example is a **decision tree** which consists on yes/no questions.
 
 A binary tree Recursively consists on: 
-• A node r, called the root of T , that stores an element
-• A binary tree (possibly empty), called the left subtree of T
-• A binary tree (possibly empty), called the right subtree of T
+- A node r, called the root of T , that stores an element
+- A binary tree (possibly empty), called the left subtree of T
+- A binary tree (possibly empty), called the right subtree of T
 
 <details>
 <summary>Binary tree base class</summary>
