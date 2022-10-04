@@ -182,6 +182,7 @@ class BinaryTree(Tree):
 <summary>COMPLETE LINKED BINARY TREE IMPLEMENTATION</summary>
 
 ```py
+
 class Tree:
     class Position:
         def element(self):
@@ -370,4 +371,4 @@ class LinkedBinaryTree(BinaryTree):
 
 ### Array-based representation of a binary tree
 
-
+Were we number the position of T. For every position *p*  of T, let $f(p)$  be the integer defined as follows.
