@@ -165,7 +165,7 @@ class BinaryTree(Tree):
 
 ## IMPLEMENTING TREES
 
-## Linked Structure for binary trees
+### Linked Structure for binary trees
 
 
 |Method|Action|
@@ -365,6 +365,9 @@ class LinkedBinaryTree(BinaryTree):
             t2._root = None 
             t2._size = 0
 ```
+
 </details>
+
+### Array-based representation of a binary tree
 
 
