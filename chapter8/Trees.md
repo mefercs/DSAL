@@ -372,3 +372,6 @@ class LinkedBinaryTree(BinaryTree):
 ### Array-based representation of a binary tree
 
 Were we number the position of T. For every position *p*  of T, let $f(p)$  be the integer defined as follows.
+- If *p* is the root of T, then $f(p)=0$
+- If *p* is the left child of *q* then $f(p)=2f(q)+1$
+
