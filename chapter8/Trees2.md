@@ -43,3 +43,4 @@ Algorithm breadthfirst(T):
 It can viewed as visition the nodes of T "from left to right"
 
 <img src="https://www.techiedelight.com/wp-content/uploads/Inorder-Traversal.png" alt="Inorder" height="200"/> 
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Threaded_tree.svg" alt="indorder" height='200'/>
