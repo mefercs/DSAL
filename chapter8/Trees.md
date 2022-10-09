@@ -375,5 +375,6 @@ Were we number the position of T. For every position *p*  of T, let $f(p)$  be t
 - If *p* is the root of T, then $f(p)=0$
 - If *p* is the left child of *q* then $f(p)=2f(q)+1$
 - if *p* is the right child of *q* then $f(p)=2f(q)+2$
-- The parent of position *p* is $\lfloor x \rfloor$
+- The parent of position *p* is $\lfloor (f(p)-1)/2 \rfloor$
 The funtion *f* is known as **level numbering**, they are not necessarily consecutive, becasue there are nodes that has no children. They follow a *potenttial* sequence.
+
