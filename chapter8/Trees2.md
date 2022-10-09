@@ -10,6 +10,7 @@ Algorithm preorder(T,p):
   for each child c in T.children(p) do 
     preorder(T,c)
 ```
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfAPF9--Vx-1A6Gq3J85E42WtyRO8pY4NOuw&usqp=CAU" alt="PreOrder" height="300"/>
 
 ### PostOrder Tree traversal
 It traverses recusively the subtrees rooted at the children of the 
@@ -21,6 +22,7 @@ root first, and then visits the root.
      postoredr(T,c)
    perform the "visit" action for p
  ```
+ <img src="https://s3.ap-south-1.amazonaws.com/afteracademy-server-uploads/how-to-traverse-in-a-tree-postorder-13146c73f47dcf88.png" alt="postorder" height="300"/>
 
 ### Breadth-First Tree Traversal
 We visit all the position at depth *d* before we visit the positions 
@@ -35,6 +37,7 @@ Algorithm breadthfirst(T):
     for each child c in T.children(p) do
       Q.enqueue(c) {add p's children to the end of the queue for later visits}
 ```
+<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--tjMTJZx2--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n28vjy9759lvwwd59j6d.png" alt="breath-depth" height="300"/>
 
 ### Inorder Traversal of a Binary Tree
 It can viewed as visition the nodes of T "from left to right"
