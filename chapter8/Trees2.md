@@ -39,4 +39,4 @@ Algorithm breadthfirst(T):
 ### Inorder Traversal of a Binary Tree
 It can viewed as visition the nodes of T "from left to right"
 
-<img src="https://www.techiedelight.com/wp-content/uploads/Inorder-Traversal.png" alt="Inorder"/> 
+<img src="https://www.techiedelight.com/wp-content/uploads/Inorder-Traversal.png" alt="Inorder" width="auto"/> 
