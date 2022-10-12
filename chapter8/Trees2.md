@@ -40,7 +40,25 @@ Algorithm breadthfirst(T):
 <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--tjMTJZx2--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n28vjy9759lvwwd59j6d.png" alt="breath-depth" height="300"/>
 
 ### Inorder Traversal of a Binary Tree
-It can viewed as visition the nodes of T "from left to right"
+It can viewed as visiting the nodes of T "from left to right"
+```
+Algorithm inorder(p): 
+  if p has a left child lc then
+    inorder(lc)
+    perform the "visit" action for position p
+    if p has a right child rc then
+      indorder(rc)
+```
 
 <img src="https://www.techiedelight.com/wp-content/uploads/Inorder-Traversal.png" alt="Inorder" height="200"/> 
 <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Threaded_tree.svg" alt="indorder" height='200'/>
+
+### Implementing Tree traversals in python
+
+|Method|Action|
+|---|---|
+|`T.positions()`|Generate an iteration of all positions of `T`|
+|`iter(T)`|Generate an iteration of all element stored within the tree `T`|
+
+#### Preorder Traversal
+
