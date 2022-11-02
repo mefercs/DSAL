@@ -12,7 +12,7 @@ Contain nodes, which points to other nodes
 - Excatly 1 path b/2 root and any node.
 - Empty tree: is also an binary tree.
 
-# Depth first traversal
+## Depth first traversal
 
 We must go deeper in the tree until we can't anymore and then 
 we can go across. We can get it with a stack 
@@ -43,10 +43,44 @@ def depthFirstTraversal(root):
   return [root.element, *leftValues, *rightValues]
 ```
 
-# Breath first traversal
+## Breath first traversal
 
 We go layer by layer, instead to go deeper. We can get it with a Queue.
 The time complexity is assuming a O(1) removing and adding Queue operations.
 - Time complexity is: O(n) 
 - Space complexity is: O(n)
 where n is the number of nodes
+
+It is better to use an iterative way to implement this algorithm.
+
+```py 
+def breathFirstValue(root:Node|None)->list[Any]:
+    if root is not None:
+        queue: list[Node] = [ root ]
+        elements : list[Any]= []
+
+        while len(queue)>0: 
+            current : Node = queue.pop(0)
+            elements.append(current.element)
+            if current.left is not None: 
+                queue.append(current.left)
+            if current.right is not None:
+                queue.append(current.right)
+
+        return elements
+
+    else:  #If root doesn't exist
+        return []
+```
+
+## Tree Includes # 55 was the last minute
+
+We just need to use a traversal algorithm, to check a node contains our element, if so, then we stop the 
+traversal.
+- where n = # of nodes, the algorithm has a complexity time of: O(n), and the same with space complexity: O(n)
+- We have 2 cases match(true) case, and null node(false) case.
+
+- Implementation with a Depth first traversal
+```py
+```
+
