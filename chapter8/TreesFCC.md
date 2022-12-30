@@ -73,14 +73,91 @@ def breathFirstValue(root:Node|None)->list[Any]:
         return []
 ```
 
-## Tree Includes # 55 was the last minute
+## Tree Includes
 
 We just need to use a traversal algorithm, to check a node contains our element, if so, then we stop the 
 traversal.
 - where n = # of nodes, the algorithm has a complexity time of: O(n), and the same with space complexity: O(n)
 - We have 2 cases match(true) case, and null node(false) case.
 
-- Implementation with a Depth first traversal
+- We can use the Implementation with a Depth first traversal, and when we find the number we return True
+
+## Tree sum
+```js
+const treeSumRecursiveJS = (root) => { 
+  if (!root) return 0; 
+  return (root.element?root.element:0) + treeSum(root.left) + treeSum(root.right)
+}
+
+
+const treeSumIterativeJS = (root) => { 
+  if (!root) return 0; 
+  const stack = [root]
+  let result = 0;
+  while ( stack.length > 0 ){ 
+    const current = stack.pop()
+    current.element? result+=current.element:result+=0;
+    if (current.left) stack.push(current.left);
+    if (current.right) stack.push(current.right);
+  } 
+  return result
+}
+```
 ```py
+def treeSumRecursive(root:Node|None) ->int:
+    if root is None:
+        return 0
+    return (root.element if root.element is not None else 0) + treeSum(root.left) + treeSum(root.right)
+
+def treeSumIterative(root: Node|None) -> int:
+    if root is None:
+        return 0 
+    stack:list[Node] = [root]
+    result : int = 0
+    while len(stack)>0:
+        current:Node = stack.pop()
+        element:int|None = current.element
+        if element is not None:
+            result += element
+        if current.left is not None:
+            stack.append( current.left )
+        if current.right is not None: 
+            stack.append( current.right )
+    return result
 ```
 
+## Minimum value of the tree 1:34:14 was the last stamp
+
+```js
+const treeMinimum = (root) => { 
+  if (!root) return Infinity;
+  const element = root.element?root.element:Infinity;
+  return Math.min(element, treeMinimum(root.left), treeMinimum(root.right))
+}
+```
+
+```py
+def returnMin (root: Node|None)->int: 
+    if root is None:
+        return 99999;
+    element:int = root.element if root.element is not None else 99999
+    return min([element,returnMin(root.left), returnMin(root.right)])
+```
+
+## Max root to leave path sum
+We start from the leaves, and scale up each layer, camparing between left and right children.
+
+- Js implementation
+```js
+const returnMaxSumPath = (root) => { 
+  if (!root) return 0
+  return root.element + Math.max( returnMaxSumPath(root.left), returnMaxSumPath(root.right) )
+}
+```
+- Python implementation 
+```py
+def returnMaxSumPath( root: Node|None ) -> int: 
+    if root is None: 
+        return 0
+    return (root.element if root.element is not None else 0) + max( returnMaxSumPath(root.left), returnMaxSumPath(root.right))
+```
