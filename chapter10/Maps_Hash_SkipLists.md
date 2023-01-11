@@ -67,11 +67,54 @@ for a given set of distinct hash codes.
 - MAD method: Multiply-Add-and-Divide. It's more reliable than the past method, the probability of collisions is 1/N.
   - **[(ai+b)mod p] mod N**, where N is the size of the bucket, p is a prime number a and b are random numbers choosen from [0,p-1] with a>0 and i is the integer to map.
 
+## COLISION HANDLING SCHEMES
+
 ### Separate chaining
+
 Is a simply way for dealing with collisions, where each bucket
 A[j] store its own secondary container. This is the collision
 resolution rule. In the worst case, the operations are proportional
 to the size of the bucket items, if we have a good hash function
 to index the n items of our map in a bucket of capacity N, each
 bucket size is [n/N], So the core map operations run in O( [ n/N ] ).
-The ratio $\lambda=n/N$
+
+The ratio $\lambda=n/N$ , also known as the **load factor** of the
+hash table should be bounded by a small constant, prefarably below 1.
+As long as $\lambda$ is O(1), the core operations should be run in O(1)
+expected time. 
+
+### Open Addressing
+
+This requires that the load factor is at most 1, and that items
+are store in the cells of the bucket array itself.
+
+- Linear Probing and its variants: 
+  - Linea Probing: If we try to insert an item (k,v) into a bucket A[j] where j=h(k) then we next try A[(j+1) mod N], if is also occupied then we try A[(j+2) mod N] and so on.
+  - Quadractic Probing: Iteratively tries the buckets A[h(k)+f(i) mod N] for i=1,2,..., where f(i)=i^2, until finding and empty bucket.
+
+The approach used by python to avoid clustering with open adressing
+is to iteratively try buckets A[h(k)+f(i) mod N] where f(i) is 
+based on pseudo-random number generator. In python the load factor
+enforcer <2/3.
+
+## Load factors, rehashing and effeciency
+
+- We should use load factors ($\lambda<1$) for hash tables using separate chaining.
+- With a open addressing scheme with a linear probing we should mantain the load factor <= .5
+
+When the load factor is exceeded is common to resize the table
+to regain the lost load factor and reinsert all the objects
+to the new table, even if we don't need to apply the hash function
+we do need to apply a new compression function that takes in consideration
+the new size of the table such process is known as **rehashing**.
+It's a must, that the size should be at least the double of the original size when 
+rehashing.
+
+### Efficency of hash tables.
+
+If the hash function is good then we have expected the items to be
+uniformly distributed in the N cells of the bucket array. 
+- Python works with dictionaries for store variables, functions, and all the stuff.
+
+last page was 442
+
