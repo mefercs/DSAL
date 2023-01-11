@@ -67,4 +67,11 @@ for a given set of distinct hash codes.
 - MAD method: Multiply-Add-and-Divide. It's more reliable than the past method, the probability of collisions is 1/N.
   - **[(ai+b)mod p] mod N**, where N is the size of the bucket, p is a prime number a and b are random numbers choosen from [0,p-1] with a>0 and i is the integer to map.
 
-Last page was 417
+### Separate chaining
+Is a simply way for dealing with collisions, where each bucket
+A[j] store its own secondary container. This is the collision
+resolution rule. In the worst case, the operations are proportional
+to the size of the bucket items, if we have a good hash function
+to index the n items of our map in a bucket of capacity N, each
+bucket size is [n/N], So the core map operations run in O( [ n/N ] ).
+The ratio $\lambda=n/N$
