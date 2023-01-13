@@ -65,7 +65,7 @@ for a given set of distinct hash codes.
 
 - Division method: maps an integer i to **i mod N**, it's more effective if it's an odd number.
 - MAD method: Multiply-Add-and-Divide. It's more reliable than the past method, the probability of collisions is 1/N.
-  - **[(ai+b)mod p] mod N**, where N is the size of the bucket, p is a prime number a and b are random numbers choosen from [0,p-1] with a>0 and i is the integer to map.
+  - **[(ai+b)mod p] mod N**, where N is the size of the bucket, p is a prime number a and b are random numbers choosen from [0,p-1] with a>0 and i is the integer to map(the hash number).
 
 ## COLISION HANDLING SCHEMES
 
@@ -116,5 +116,8 @@ If the hash function is good then we have expected the items to be
 uniformly distributed in the N cells of the bucket array. 
 - Python works with dictionaries for store variables, functions, and all the stuff.
 
-last page was 442
+## Sorted Maps
 
+- Exact Search: Look up the value for a given key.
+
+last page 427
