@@ -1,4 +1,4 @@
-// TYPED ARRAYS
+// ###############  TYPED ARRAYS ############### 
 
 var i8 = new Int8Array(5); // ex. of a typed array
 console.log(
@@ -15,7 +15,7 @@ console.log(
     i8Buffer.byteLength
 );
 
-// STACK
+// ############### STACK ############### 
 
 class Stack {
   constructor() {
@@ -38,7 +38,7 @@ class Stack {
   }
 }
 
-// QUEUE
+// ############### QUEUE ############### 
 
 class Queue {
   constructor() {
@@ -61,7 +61,7 @@ class Queue {
   }
 }
 
-// PRIORITY QUEUE
+// ############### PRIORITY QUEUE ############### 
 
 class PriorityQueue {
   constructor() {
@@ -94,8 +94,8 @@ class PriorityQueue {
   };
 }
 
-// CIRCULAR QUEUE
-//
+// ############### CIRCULAR QUEUE ############### 
+
 class CircularQueue {
   constructor(size) {
     this.queue = [];
