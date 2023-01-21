@@ -118,6 +118,21 @@ uniformly distributed in the N cells of the bucket array.
 
 ## Sorted Maps
 
-- Exact Search: Look up the value for a given key.
+If we want to store information with time stamps that would serve as a 
+reference for they key acting as an ID. It gives us the oportunity to
+retrive efficently data according to the keys. They are useful when we
+have time stamps or **ranges**.
 
-last page 427
+- Exact Search: Look up the value for a given key.
+- Sorted search tables: The map's items are store in a way that the keys are in increasing order.
+  - With this approach we can use a binary search algorithm.
+
+## Skip Lists 437
+
+Is efficently in search an update operations, a Skip List S for a map M 
+consist in a series of lists, where each list stores a subset of the Items 
+of M sorted by increasing keys, with sentinels $-\infty$ and $+\infty$, and
+layers also called **height**, where each item has 1/2 propability to stay on each
+height. Due to ramdomization the time operations are just expected.
+
+Last page was 442
