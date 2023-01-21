@@ -51,3 +51,9 @@ It is queue with a fixed size to store items. It's useful for streaming media.
 It is used to simple check the presence of an item.
 
 ## MAPS AND  HASH TABLES
+
+## NODES IN A LINKED LIST
+
+A linked list a linear collection of data elements called nodes.
+Each node contains at least `element` and `node` which points to.
+

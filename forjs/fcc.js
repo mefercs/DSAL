@@ -1,5 +1,4 @@
 // ###############  TYPED ARRAYS ###############
-
 var i8 = new Int8Array(5); // ex. of a typed array
 console.log(
   "This is a 8bits array with 5 slots: [" + i8 + "] -> length: " + i8.byteLength
@@ -15,7 +14,6 @@ console.log(
 );
 
 // ############### STACK ###############
-
 class Stack {
   constructor() {
     this.collection = [];
@@ -38,7 +36,6 @@ class Stack {
 }
 
 // ############### QUEUE ###############
-
 class Queue {
   constructor() {
     this.collection = [];
@@ -61,7 +58,6 @@ class Queue {
 }
 
 // ############### PRIORITY QUEUE ###############
-
 class PriorityQueue {
   constructor() {
     this.collection = [];
@@ -94,7 +90,6 @@ class PriorityQueue {
 }
 
 // ############### CIRCULAR QUEUE ###############
-
 class CircularQueue {
   constructor(size) {
     this.queue = [];
@@ -128,7 +123,6 @@ class CircularQueue {
 }
 
 // ###############  SET  ###############
-
 class Set {
   constructor() {
     this.dictionary = {};
@@ -224,3 +218,6 @@ let HashTable = function () {
       delete this.collection[hashedKey];
   };
 };
+
+// ###############  LINKED LIST ###############
+ 
