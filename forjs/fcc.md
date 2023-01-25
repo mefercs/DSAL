@@ -57,3 +57,5 @@ It is used to simple check the presence of an item.
 A linked list a linear collection of data elements called nodes.
 Each node contains at least `element` and `node` which points to.
 
+- Double linkedList: Even if it's better we need more space in memory.
+
