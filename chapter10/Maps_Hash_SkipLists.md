@@ -81,19 +81,19 @@ bucket size is [n/N], So the core map operations run in O( [ n/N ] ).
 The ratio $\lambda=n/N$ , also known as the **load factor** of the
 hash table should be bounded by a small constant, prefarably below 1.
 As long as $\lambda$ is O(1), the core operations should be run in O(1)
-expected time. 
+expected time.
 
 ### Open Addressing
 
 This requires that the load factor is at most 1, and that items
 are store in the cells of the bucket array itself.
 
-- Linear Probing and its variants: 
+- Linear Probing and its variants:
   - Linea Probing: If we try to insert an item (k,v) into a bucket A[j] where j=h(k) then we next try A[(j+1) mod N], if is also occupied then we try A[(j+2) mod N] and so on.
   - Quadractic Probing: Iteratively tries the buckets A[h(k)+f(i) mod N] for i=1,2,..., where f(i)=i^2, until finding and empty bucket.
 
 The approach used by python to avoid clustering with open adressing
-is to iteratively try buckets A[h(k)+f(i) mod N] where f(i) is 
+is to iteratively try buckets A[h(k)+f(i) mod N] where f(i) is
 based on pseudo-random number generator. In python the load factor
 enforcer <2/3.
 
@@ -107,18 +107,19 @@ to regain the lost load factor and reinsert all the objects
 to the new table, even if we don't need to apply the hash function
 we do need to apply a new compression function that takes in consideration
 the new size of the table such process is known as **rehashing**.
-It's a must, that the size should be at least the double of the original size when 
+It's a must, that the size should be at least the double of the original size when
 rehashing.
 
 ### Efficency of hash tables.
 
 If the hash function is good then we have expected the items to be
-uniformly distributed in the N cells of the bucket array. 
+uniformly distributed in the N cells of the bucket array.
+
 - Python works with dictionaries for store variables, functions, and all the stuff.
 
 ## Sorted Maps
 
-If we want to store information with time stamps that would serve as a 
+If we want to store information with time stamps that would serve as a
 reference for they key acting as an ID. It gives us the oportunity to
 retrive efficently data according to the keys. They are useful when we
 have time stamps or **ranges**.
@@ -129,12 +130,28 @@ have time stamps or **ranges**.
 
 ## Skip Lists 437
 
-Is efficently in search an update operations, a Skip List S for a map M 
-consist in a series of lists, where each list stores a subset of the Items 
+Is efficently in search an update operations, a Skip List S for a map M
+consist in a series of lists, where each list stores a subset of the Items
 of M sorted by increasing keys, with sentinels $-\infty$ and $+\infty$, and
 layers also called **height**, where each item has 1/2 propability to stay on each
 height. Due to ramdomization the time operations are just expected.
 
 ## Sets, multisets and multimaps 446
 
+- Type inference: `x = type(int)()`: creates a concrete instance of the class listed in type() method.
+  - In this way we can instance within the class itself.
+  - `type(class)` returns a reference to that class, and `type(class)()` executes the contructor returned by `type(class)`
+- Set: In essence is a map with just the keys. Unordered without duplicates collection. Indeed it's implementated using hash functions.
+- Multisets(Bags): Set-like that allows duplicates.
+- Multimap: The same key can be mapped to multiple values.
 
+| Method | Action in set                                    |
+| ------ | ------------------------------------------------ | ----------------------------------- |
+| `S     | T`                                               | Returns the union in a new set      |
+| `S     | =T`                                              | Update S to be the union of S and T |
+| `S&T`  | Returns a new set of the intersection of S and T |
+| `S&=T` | Updates S to be the intersection of S and T      |
+| `S^T`  | New set of the simmetryc difference              |
+| `S^=T` | Updates S to be the simmetryc difference         |
+| `S–T`  | New set with the elements in S but not in T      |
+| `S–=T` | Updates S to be the elements in S but not in T   |
