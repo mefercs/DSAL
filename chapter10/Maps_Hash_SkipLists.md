@@ -145,13 +145,13 @@ height. Due to ramdomization the time operations are just expected.
 - Multisets(Bags): Set-like that allows duplicates.
 - Multimap: The same key can be mapped to multiple values.
 
-| Method | Action in set                                    |
-| ------ | ------------------------------------------------ | ----------------------------------- |
-| `S OR T`                                               | Returns the union in a new set      |
-| `S OR T`                                              | Update S to be the union of S and T |
-| `S&T`  | Returns a new set of the intersection of S and T |
-| `S&=T` | Updates S to be the intersection of S and T      |
-| `S^T`  | New set of the simmetryc difference              |
-| `S^=T` | Updates S to be the simmetryc difference         |
-| `S–T`  | New set with the elements in S but not in T      |
-| `S–=T` | Updates S to be the elements in S but not in T   |
+| Methods  | Action in set                                    |
+| -------- | ------------------------------------------------ |
+| `S OR T` | Returns the union in a new set                   |
+| `S OR T` | Update S to be the union of S and T              |
+| `S&T`    | Returns a new set of the intersection of S and T |
+| `S&=T`   | Updates S to be the intersection of S and T      |
+| `S^T`    | New set of the simmetryc difference              |
+| `S^=T`   | Updates S to be the simmetryc difference         |
+| `S–T`    | New set with the elements in S but not in T      |
+| `S–=T`   | Updates S to be the elements in S but not in T   |
