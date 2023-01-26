@@ -14,4 +14,4 @@
 - 11.1.4 Python implementation:
 - 11.1.5 Performance of a Binary Search Tree: A binary tree is a good
   implementation of a map if the height is small.  in the best case
-  the height is $h=\lceillog(n+1)\rceil-1$
+  the height is $h=\lceil log(n+1)\rceil-1$
