@@ -11,5 +11,7 @@
   for our current node ( r=before(p) ), then we replace the node
   for our current position p, with r which is the predecessor, and
   then we remove r on the previous position.
-
-last page 468
+- 11.1.4 Python implementation:
+- 11.1.5 Performance of a Binary Search Tree: A binary tree is a good
+  implementation of a map if the height is small.  in the best case
+  the height is $h=\lceillog(n+1)\rceil-1$

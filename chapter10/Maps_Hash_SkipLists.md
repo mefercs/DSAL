@@ -147,8 +147,8 @@ height. Due to ramdomization the time operations are just expected.
 
 | Method | Action in set                                    |
 | ------ | ------------------------------------------------ | ----------------------------------- |
-| `S     | T`                                               | Returns the union in a new set      |
-| `S     | =T`                                              | Update S to be the union of S and T |
+| `S|T`  | Returns the union in a new set      |
+| `S| =T`| Update S to be the union of S and T |
 | `S&T`  | Returns a new set of the intersection of S and T |
 | `S&=T` | Updates S to be the intersection of S and T      |
 | `S^T`  | New set of the simmetryc difference              |
