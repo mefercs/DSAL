@@ -1,6 +1,5 @@
 fn+mayús+tab = desired screenshot
 
-
 ## TYPED ARRAYS
 
 We now specify the amount of memory we give to an array.
@@ -53,7 +52,7 @@ It is queue with a fixed size to store items. It's useful for streaming media.
 
 It is used to simple check the presence of an item.
 
-## MAPS AND  HASH TABLES
+## MAPS AND HASH TABLES
 
 ## NODES IN A LINKED LIST
 
@@ -65,8 +64,18 @@ Each node contains at least `element` and `node` which points to.
 ## TREES
 
 A subtree refers to all the descendants of a particular node.
+
 - A tree is unbalanced when there is at most 1 node of difference between the minimum and maximum height.
   - The height is the distance between the root and any node in the tree.
   - In a balanced tree all the leafs exist in the same height or at most one level apart.
   - It's important becuase it defines the efficency of the operations.
-- **Depth-first search**: The tree is traveled as deeply as possible before the search continues with another subtree.
+- **Depth-first traversal**: The tree is traveled as deeply as possible before the search continues with another subtree.
+  - In-order: left-most node and ends at the right-most node.
+    - The add root, is in the middle of left and right addings
+  - Pre-order: All the roots before the leafs.
+    - The add root is before the left and right addings
+  - Post-order: All the leafs before the roots.
+    - The add root is at the end of the left and right addings
+- **Breadh-First** traversal: Here we explore all the nodes per level before
+  continuing on the next level, queues are usuall in the implementation 
+  as a helper data structure.

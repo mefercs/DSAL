@@ -220,9 +220,9 @@ let HashTable = function () {
 };
 
 // ###############  LINKED LIST  ###############
+//EMPTY
 
 // ###############  TREES  ###############
-
 function isBinarySearchTree(tree) {
   //check if the tree if a binary tree
   const isBinarySubTree = (node) =>
@@ -252,3 +252,83 @@ const findMaxHeight = function (node = this.root) {
 const isBalanced = function () {
   return this.findMaxHeight() - this.findMinHeight() <= 1;
 };
+
+// DEPTH-FIRST:  Inorder, preorder, postorder traversals
+var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
+function Node(value) {
+  this.value = value;
+  this.left = null;
+  this.right = null;
+}
+function BinarySearchTree() {
+  this.root = null;
+  // Only change code below this line
+  this.inoder = function () {
+    if (!this.root) return null;
+    const traversal = (node) => {
+      if (!node) return [];
+      let nodes = traversal(node.left); //Here we are adding all the left nodes
+      nodes.push(node.value); //adds the root inorder traversal
+      nodes.push(...traversal(node.right)); // Here we are adding all the right adds the root inorder traversal
+      return nodes; //return the resulting values
+    };
+    return traversal(this.root);
+  };
+  this.preorder = function () {
+    if (!this.root) return null;
+    const traverse = (node) => {
+      if (!node) return [];
+      let nodes = [node.value]; //adds the root (inorder)
+      nodes.push(...traverse(node.left)); // adds the left
+      nodes.push(...traverse(node.right)); // adds the right
+      return nodes;
+    };
+    return traverse(this.root);
+  };
+  this.postorder = function () {
+    if (!this.root) return null;
+    const traverse = (node) => {
+      if (!node) return [];
+      let nodes = [...traverse(node.left)]; //adds all the left values
+      nodes.push(...traverse(node.right)); //adds all the rigth values
+      nodes.push(node.value); // add the root (post order)
+      return nodes;
+    };
+    return traverse(this.root);
+  };
+}
+
+// BREADH-FIRST
+var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
+function Node(value) {
+  this.value = value;
+  this.left = null;
+  this.right = null;
+}
+function BinarySearchTree() {
+  this.root = null;
+  this.levelOrder = function () {
+    if (!this.root) return null;
+    let queue = [this.root];
+    let values = [];
+    while (queue.length != 0) {
+      let node = queue.shift();
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+      values.push(node.value);
+    }
+    return values;
+  };
+  this.reverseLevelOrder = function () {
+    if (!this.root) return null;
+    let queue = [this.root];
+    let values = [];
+    while (queue.length != 0) {
+      let node = queue.shift();
+      if (node.right) queue.push(node.right);
+      if (node.left) queue.push(node.left);
+      values.push(node.value)
+    }
+    return values
+  };
+}
