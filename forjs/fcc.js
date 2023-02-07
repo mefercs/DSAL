@@ -219,5 +219,36 @@ let HashTable = function () {
   };
 };
 
-// ###############  LINKED LIST ###############
- 
+// ###############  LINKED LIST  ###############
+
+// ###############  TREES  ###############
+
+function isBinarySearchTree(tree) {
+  //check if the tree if a binary tree
+  const isBinarySubTree = (node) =>
+    !node || //an empty node counts as a biarny tree.
+    ((!node.left || node.left.value < node.value) && //check if there is a left node, if does, check if correctly comppletes the condition
+      (!node.right || node.right.value > node.value) && // check if there is a right node, if does, check if correctly completes the binary tree condition
+      isBinarySubTree(node.left) && //execute the same for all the left nodes
+      isBinarySubTree(node.right)); // execute the function for all the right nodes.
+  return isBinarySubTree(tree.root);
+}
+const findMinHeight = function (node = this.root, height = 0) {
+  if (!this.root) return -1;
+  const checkMin = (node) => {
+    if (!node) return 0;
+    return 1 + Math.min(checkMin(node.left), checkMin(node.right));
+  };
+  return checkMin(this.root) - 1;
+};
+const findMaxHeight = function (node = this.root) {
+  if (!this.root) return -1;
+  const checkMax = (node) => {
+    if (!node) return 0;
+    return 1 + Math.max(checkMax(node.left), checkMax(node.right));
+  };
+  return checkMax(this.root) - 1;
+};
+const isBalanced = function () {
+  return this.findMaxHeight() - this.findMinHeight() <= 1;
+};

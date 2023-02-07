@@ -1,3 +1,6 @@
+fn+mayús+tab = desired screenshot
+
+
 ## TYPED ARRAYS
 
 We now specify the amount of memory we give to an array.
@@ -59,3 +62,11 @@ Each node contains at least `element` and `node` which points to.
 
 - Double linkedList: Even if it's better we need more space in memory.
 
+## TREES
+
+A subtree refers to all the descendants of a particular node.
+- A tree is unbalanced when there is at most 1 node of difference between the minimum and maximum height.
+  - The height is the distance between the root and any node in the tree.
+  - In a balanced tree all the leafs exist in the same height or at most one level apart.
+  - It's important becuase it defines the efficency of the operations.
+- **Depth-first search**: The tree is traveled as deeply as possible before the search continues with another subtree.
