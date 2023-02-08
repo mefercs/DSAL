@@ -22,6 +22,8 @@ introduce elements in increasing or decreasing order.
 - **11.2 Balanced Search Trees**: 
   - Rotation: Is a operation to rebalance a binary tree.
   - Trinode-restructuring: we cosider x, its parent y and its grandparent z.
-
+    Where the goal is to restructure the subtree rooted at z in order to reduce
+    the path length to x and its subtrees.
+  - 
 
 

@@ -1,3 +1,4 @@
+
 // ###############  TYPED ARRAYS ###############
 var i8 = new Int8Array(5); // ex. of a typed array
 console.log(
@@ -186,7 +187,6 @@ var Map = function () {
       delete this.collection[item];
     }
   };
-  // Only change code above this line
 };
 
 // ###############  MAP  ###############
@@ -327,8 +327,41 @@ function BinarySearchTree() {
       let node = queue.shift();
       if (node.right) queue.push(node.right);
       if (node.left) queue.push(node.left);
-      values.push(node.value)
+      values.push(node.value);
     }
-    return values
+    return values;
   };
 }
+
+//remove a node
+var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
+function Node(value) {
+  this.value = value;
+  this.left = null;
+  this.right = null;
+}
+function BinarySearchTree() {
+  this.root = null;
+  this.remove = (value) => {
+    if (!this.root) return null;
+    let parent;
+    let current = this.root;
+    while (current && current.value !== value) {
+      parent = current;
+      if (current.value > value) {
+        current = current.left;
+      } else {
+        current = current.right;
+      }
+    }
+    if (!current) return null;
+    if (!parent) {
+      this.root = null;
+    } else {
+      const direction = current == parent.left ? "left" : "right";
+      parent[direction] = null;
+    }
+  };
+}
+
+
