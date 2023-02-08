@@ -79,3 +79,9 @@ A subtree refers to all the descendants of a particular node.
 - **Breadh-First** traversal: Here we explore all the nodes per level before
   continuing on the next level, queues are usuall in the implementation 
   as a helper data structure.
+- **Delete a leaf Node in a binary tree**: We can encounter 3 cases
+  when deleting a node: 
+  - Leaf Node: The node has zero children. Simply remove it.
+  - One child: The target has one child. Link the remaining child
+    with the parent.
+  - Two child: Target has left and right node.
