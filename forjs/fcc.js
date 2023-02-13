@@ -333,7 +333,7 @@ function BinarySearchTree() {
   };
 }
 
-//remove a node
+//remove a leaf, a node with one child
 var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
 function Node(value) {
   this.value = value;
@@ -342,26 +342,42 @@ function Node(value) {
 }
 function BinarySearchTree() {
   this.root = null;
-  this.remove = (value) => {
-    if (!this.root) return null;
-    let parent;
-    let current = this.root;
-    while (current && current.value !== value) {
-      parent = current;
-      if (current.value > value) {
-        current = current.left;
-      } else {
-        current = current.right;
+  this.remove = value => { 
+    if(!this.root) return null;
+    if(this.root.value == value){ //logic for one node, when is the root
+      if(this.root.left){
+        this.root = this.root.left
+      }
+      else{ 
+        this.root = this.root.right
       }
     }
-    if (!current) return null;
-    if (!parent) {
-      this.root = null;
-    } else {
-      const direction = current == parent.left ? "left" : "right";
-      parent[direction] = null;
+    let current = this.root;
+    let parent;
+    while(current && current.value!==value){
+      parent = current 
+      if(current.value > value ){
+        current = current.left
+      }
+      else{
+        current = current.right
+      }
     }
-  };
-}
+    if(!current) return null; 
+    if(!parent){ 
+      this.root = null
+    }else{ 
+      let direction = current==parent.left?"left":"right";
+      if(current.left || current.right){ //a node with 1 child logic, it's just this line added
+        parent[direction] = current.left ? current.left:current.right ;
+      } 
+      else{       
+        parent[direction] = null; 
+      }
+    }
+  }
+};
+
+
 
 
