@@ -1,3 +1,6 @@
+* shift+i = go to definition in neovim
+* number + shift + d = go to specific line in neovim
+
 ## Binary Search Trees 11.1
 
 - Inorder Traversal: traverse the tree just with the left nodes.
