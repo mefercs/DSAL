@@ -50,7 +50,7 @@ class TreeMap(LinkedBinaryTree, MapBase):
 
   def _subtree_first_position(self, p):
     """Return Position of first item in subtree rooted at p."""
-    walk = p
+    walk= p
     while self.left(walk) is not None:                 # keep walking left
       walk = self.left(walk)
     return walk

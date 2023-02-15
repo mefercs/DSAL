@@ -26,7 +26,8 @@ introduce elements in increasing or decreasing order.
   - Rotation: Is a operation to rebalance a binary tree.
   - Trinode-restructuring: we cosider x, its parent y and its grandparent z.
     Where the goal is to restructure the subtree rooted at z in order to reduce
-    the path length to x and its subtrees.
-  - 
+    the path length to x and its subtrees. In practice it can be implemented in 2 ways.
+    1. Single Rotation
+    2. Double Rotation
 
 
