@@ -44,6 +44,7 @@ introduce elements in increasing or decreasing order.
   Is a binary tree with a rule that mantain logarithmic height worst-case (*height balance
   property*). Any binary tree that satisfies the height-balancing property is said to be
   an AVL tree.
-  > height balance property: For every position p of T; the heigt of its children differ 
-    by at most 1.
   ![AVL tree example](https://learnersbucket.com/wp-content/uploads/2021/03/AVL-Tree-in-Javascript.png)  
+  - height balance property: For every position p of T; the heigt of its children differ 
+    by at most 1.
+
