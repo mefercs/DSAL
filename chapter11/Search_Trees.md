@@ -37,4 +37,12 @@ introduce elements in increasing or decreasing order.
     Hooks are included in the *delete* and *setitem* 
     functions, and also there is an special form for *getitem*, in a **splay tree**
     , to restructure the tree with the more frequent items to be closer to the root.
-  - Nonpublic methods for rotating an restructuring: / 
+  - Nonpublic methods for rotating an restructuring: \
+  - Factory for creating tree nodes: \
+
+- **AVL trees** (481):    
+  Is a binary tree with a rule that mantain logarithmic height worst-case (*height balance
+  property*).
+  > height balance property: For every position p of T; the heigt of its children differ 
+    by at most 1.
+  
