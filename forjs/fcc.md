@@ -85,5 +85,13 @@ A subtree refers to all the descendants of a particular node.
   - One child: The target has one child. Link the remaining child
     with the parent.
   - Two child: Target has left and right node.
-  - [FCC SOLUTION :( FOR 3 NODES](https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-delete-a-node-with-two-children-in-a-binary-search-tree/301639)
-
+  - [FCC SOLUTION :( FOR 3 CASES](https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-delete-a-node-with-two-children-in-a-binary-search-tree/301639)
+- **Invert a binary tree**: Is the mirror image of the tree
+  ```js
+  this.invert = function(node=this.root){
+    if(!node) return; 
+    [node.left,node.right] = [node.right,node.left]
+    this.invert(node.left) 
+    this.invert(node.right)
+  }
+  ```
