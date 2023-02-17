@@ -85,5 +85,5 @@ A subtree refers to all the descendants of a particular node.
   - One child: The target has one child. Link the remaining child
     with the parent.
   - Two child: Target has left and right node.
-  - LINK FOR TREE CASES: <a src="https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-delete-a-node-with-two-children-in-a-binary-search-tree/301639">FCC SOLUTION :(</a>
+  - [FCC SOLUTION :( FOR 3 NODES](https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-delete-a-node-with-two-children-in-a-binary-search-tree/301639)
 
