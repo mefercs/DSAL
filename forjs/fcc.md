@@ -95,3 +95,7 @@ A subtree refers to all the descendants of a particular node.
     this.invert(node.right)
   }
   ```
+- **Trie Search Tree**: Commonly used to hold strings, or associative arrays or
+  dynamic arrays where keys are strings. Very good at storing sets of data
+  when many keys will have overlapping prefixes. For example all the words
+  in a dictionary.

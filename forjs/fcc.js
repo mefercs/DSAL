@@ -378,6 +378,19 @@ function BinarySearchTree() {
   }
 };
 
-
-
-
+//invert a binary tree
+var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
+function Node(value) {
+  this.value = value;
+  this.left = null;
+  this.right = null;
+}
+function BinarySearchTree() {
+  this.root = null;
+  this.invert = function(node = this.root){
+    if(this.node) return;
+    [node.left, node.right] = [node.right, node.left]
+    this.invert(node.left) 
+    this.invert(node.right)
+  }
+}
