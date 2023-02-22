@@ -394,3 +394,83 @@ function BinarySearchTree() {
     this.invert(node.right)
   }
 }
+
+// Trie binary search tree
+var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
+var Node = function () {
+  // keys holds the nodes, so we can have multiple nodes
+  this.keys = new Map();
+  this.end = false;
+  this.setEnd = function () {
+    this.end = true;
+  };
+  this.isEnd = function () {
+    return this.end;
+  };
+};
+var Trie = function () {
+  this.root = new Node();
+  this.add = (wordParam) => {
+    // we save in wordParam a chain of nodes, not a string
+    function addWord(word /*this is a string*/, root /*this is the node reference*/) {
+      if (word) {
+        //only executes if the word exists, if don't, stop the recursion
+        // We consider each letter as a node
+        if (Object.keys(root.keys).includes(word[0])) {
+          //Here we check if the node of that letter already exist
+          //if so then we continue with the next word of the letter, and set
+          //the root the previous letter
+          let letter = word[0];
+          addWord(word.substring(1), root.keys[letter]);
+        } else {
+          const node = new Node(); //create the node to store the letter
+          let letter = word[0]; // the key is the character, and the value is the node
+          root.keys[letter] = node;
+          if (word.length === 1) {
+            node.setEnd();
+          }
+          addWord(word.substring(1), root.keys[letter]);
+        }
+      }
+    }
+    addWord(wordParam, this.root);
+  };
+  this.isWord = (word/*this is a string*/) => {
+    let root = this.root;
+    while (word) {
+      let firstLetter = word[0];
+      if (Object.keys(root.keys).includes(firstLetter)) {
+        if (word.length === 1) {
+          if (!root.keys[firstLetter].isEnd()) {
+            return false;
+          }
+        }
+        word = word.substring(1);
+      } else {
+        return false;
+      }
+      root = root.keys[firstLetter];
+    }
+    return true;
+  };
+  this.print = () => {
+    const words = [];
+    function reTRIEve(root, word) {
+      if (Object.keys(root.keys).length != 0) { // ['f','y','x','q','s'] != []
+        for (let letter of Object.keys(root.keys)) {
+          reTRIEve(root.keys[letter], word.concat(letter));
+        }
+        if (root.isEnd()) {  
+          words.push(word);
+        }
+      } else {
+        word.length > 0 ? words.push(word) : undefined;
+        return;
+      }
+    }
+    reTRIEve(this.root, "");
+    return words;
+  };
+};
+
+// binary heap

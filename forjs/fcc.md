@@ -90,7 +90,8 @@ A subtree refers to all the descendants of a particular node.
   ```js
   this.invert = function(node=this.root){
     if(!node) return; 
-    [node.left,node.right] = [node.right,node.left]
+    [node.left,node.right] = [node.right,node.left] //this is the entire logic to solve the problem
+    //we did it with deconstruction
     this.invert(node.left) 
     this.invert(node.right)
   }
@@ -98,4 +99,14 @@ A subtree refers to all the descendants of a particular node.
 - **Trie Search Tree**: Commonly used to hold strings, or associative arrays or
   dynamic arrays where keys are strings. Very good at storing sets of data
   when many keys will have overlapping prefixes. For example all the words
-  in a dictionary.
+  in a dictionary. All the strings sharing prefixes should  come from a common node.
+  - They are also known as digital tree or prefix tree. 
+  - The leafs are the word completed
+  - The nodes can store multiple children nodes.
+
+- **Binary heap**: Is a partially ordered *binary *tree which satisfies the heap property.
+  - heap property: Satisfies a relation between parent and children.
+  In the binary heap are present 2 situations:
+  - Max heap: All parent nodes are greater or equal to their children.
+  - Min haep: All the child nodes are greater or equal to their parents.
+  
