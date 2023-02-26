@@ -123,4 +123,5 @@ A subtree refers to all the descendants of a particular node.
     we always remove the greatest value, which is the root. 
   - Use cases:
     - They can be used to implement a priority queue.
-  -Heap sort
+  -Heap sort: It implements a min heap, in which we take an unsorted array, and insert its items
+    into the min heap, and then remove the items of the min heap.
