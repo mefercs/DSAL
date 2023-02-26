@@ -125,3 +125,8 @@ A subtree refers to all the descendants of a particular node.
     - They can be used to implement a priority queue.
   -Heap sort: It implements a min heap, in which we take an unsorted array, and insert its items
     into the min heap, and then remove the items of the min heap.
+- **Graphs**:
+  - **Adjency list && Matrix**: Undirected and directed Matrix also are a way to implement this.  
+    - undirected matrix: we represent in both ways the matrix
+    - directed matrix: just in the row way.
+  - **Incidence Matrix**: 
