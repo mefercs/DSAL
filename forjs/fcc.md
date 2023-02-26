@@ -106,7 +106,21 @@ A subtree refers to all the descendants of a particular node.
 
 - **Binary heap**: Is a partially ordered *binary *tree which satisfies the heap property.
   - heap property: Satisfies a relation between parent and children.
-  In the binary heap are present 2 situations:
+  In the binary heap are present 2 situations, becuase there is not a left greater and right lower
+  or viceversa, just greater both or smaller both children:
   - Max heap: All parent nodes are greater or equal to their children.
-  - Min haep: All the child nodes are greater or equal to their parents.
-  
+  - Min heap: All the child nodes are greater or equal to their parents.
+  They are completed binary trees, that means that all the levels are full filled
+  except for the last level, in witch case, all the keys are as left as possible, so
+  the last level is filled from left to right.
+  Using an array they can be implemented with the array for index i the children
+  are `2*i+1` and `2*i+2`, the structure follow the next form [a,b,c,d,e,f,g,...] and parent 
+  Math.floor((i-1)/2).
+  To simplify the structure we can use the next form [null,a,b,c,d,e,f,g...]
+  and in that way the children are `2*i`(left) and `2*i+1`(right), therefore the parent is
+  Math.floor(i/2).
+  - Remove elements: We find the greatest elements, and set it as the root, because
+    we always remove the greatest value, which is the root. 
+  - Use cases:
+    - They can be used to implement a priority queue.
+  -Heap sort

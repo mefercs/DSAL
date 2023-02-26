@@ -1,4 +1,3 @@
-
 // ###############  TYPED ARRAYS ###############
 var i8 = new Int8Array(5); // ex. of a typed array
 console.log(
@@ -342,41 +341,40 @@ function Node(value) {
 }
 function BinarySearchTree() {
   this.root = null;
-  this.remove = value => { 
-    if(!this.root) return null;
-    if(this.root.value == value){ //logic for one node, when is the root
-      if(this.root.left){
-        this.root = this.root.left
-      }
-      else{ 
-        this.root = this.root.right
+  this.remove = (value) => {
+    if (!this.root) return null;
+    if (this.root.value == value) {
+      //logic for one node, when is the root
+      if (this.root.left) {
+        this.root = this.root.left;
+      } else {
+        this.root = this.root.right;
       }
     }
     let current = this.root;
     let parent;
-    while(current && current.value!==value){
-      parent = current 
-      if(current.value > value ){
-        current = current.left
-      }
-      else{
-        current = current.right
-      }
-    }
-    if(!current) return null; 
-    if(!parent){ 
-      this.root = null
-    }else{ 
-      let direction = current==parent.left?"left":"right";
-      if(current.left || current.right){ //a node with 1 child logic, it's just this line added
-        parent[direction] = current.left ? current.left:current.right ;
-      } 
-      else{       
-        parent[direction] = null; 
+    while (current && current.value !== value) {
+      parent = current;
+      if (current.value > value) {
+        current = current.left;
+      } else {
+        current = current.right;
       }
     }
-  }
-};
+    if (!current) return null;
+    if (!parent) {
+      this.root = null;
+    } else {
+      let direction = current == parent.left ? "left" : "right";
+      if (current.left || current.right) {
+        //a node with 1 child logic, it's just this line added
+        parent[direction] = current.left ? current.left : current.right;
+      } else {
+        parent[direction] = null;
+      }
+    }
+  };
+}
 
 //invert a binary tree
 var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
@@ -387,12 +385,12 @@ function Node(value) {
 }
 function BinarySearchTree() {
   this.root = null;
-  this.invert = function(node = this.root){
-    if(this.node) return;
-    [node.left, node.right] = [node.right, node.left]
-    this.invert(node.left) 
-    this.invert(node.right)
-  }
+  this.invert = function (node = this.root) {
+    if (this.node) return;
+    [node.left, node.right] = [node.right, node.left];
+    this.invert(node.left);
+    this.invert(node.right);
+  };
 }
 
 // Trie binary search tree
@@ -412,7 +410,10 @@ var Trie = function () {
   this.root = new Node();
   this.add = (wordParam) => {
     // we save in wordParam a chain of nodes, not a string
-    function addWord(word /*this is a string*/, root /*this is the node reference*/) {
+    function addWord(
+      word /*this is a string*/,
+      root /*this is the node reference*/
+    ) {
       if (word) {
         //only executes if the word exists, if don't, stop the recursion
         // We consider each letter as a node
@@ -435,7 +436,7 @@ var Trie = function () {
     }
     addWord(wordParam, this.root);
   };
-  this.isWord = (word/*this is a string*/) => {
+  this.isWord = (word /*this is a string*/) => {
     let root = this.root;
     while (word) {
       let firstLetter = word[0];
@@ -456,11 +457,12 @@ var Trie = function () {
   this.print = () => {
     const words = [];
     function reTRIEve(root, word) {
-      if (Object.keys(root.keys).length != 0) { // ['f','y','x','q','s'] != []
+      if (Object.keys(root.keys).length != 0) {
+        // ['f','y','x','q','s'] != []
         for (let letter of Object.keys(root.keys)) {
           reTRIEve(root.keys[letter], word.concat(letter));
         }
-        if (root.isEnd()) {  
+        if (root.isEnd()) {
           words.push(word);
         }
       } else {
@@ -473,4 +475,49 @@ var Trie = function () {
   };
 };
 
-// binary heap
+// binary heap - MaxHeap
+var MaxHeap = function () {
+  this.heap = [null];
+  this.insert = (ele) => {
+    var index = this.heap.length;
+    var arr = [...this.heap];
+    arr.push(ele);
+    while (ele > arr[Math.floor(index / 2)] && index > 1) {
+      arr[index] = arr[Math.floor(index / 2)];
+      arr[Math.floor(index / 2)] = ele;
+      index = Math.floor(index / 2);
+    }
+    this.heap = arr;
+  };
+  this.print = () => {
+    return this.heap.slice(1);
+  };
+  // Only change code below this line
+  this.remove = () => {
+    this.heap = [...this.heap];
+    let max = this.heap[1];
+    let last = this.heap.pop();
+    this.heap[1] = last;
+    this.heapify(1);
+    return max;
+  };
+  this.heapify = (i) => {
+    let large = i;
+    let l = 2 * i + 0;
+    let r = 2 * i + 1;
+    let length = this.heap.length;
+    if (l < length && this.heap[l] > this.heap[large]) {
+      large = l;
+    }
+    if (r < length && this.heap[r] > this.heap[large]) {
+      large = r;
+    }
+    if (large != i) {
+      let temp = this.heap[i];
+      this.heap[i] = this.heap[large];
+      this.heap[large] = temp;
+      this.heapify(large);
+    }
+  };
+};
+
