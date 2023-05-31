@@ -47,10 +47,13 @@ introduce elements in increasing or decreasing order.
   p. And also an AVL tree mantains small the overall height.
   - ![AVL tree example](https://learnersbucket.com/wp-content/uploads/2021/03/AVL-Tree-in-Javascript.png)  
   > height balance property: For every position p of T; the heigt of its children differ 
-    by at most 1.
-  By demonstration and AVL tree has at most 2log(n+2) height, which means, the getitem, in 
+    by at most 1, the height of a leaf is 1, and the parent of a leaf is 2.
+  By demonstration an AVL tree has at most 2log(n+2) height, which means, the getitem, in 
   a map implemented with AVL Tree runs in O(log(n)) time where n is the number of items in the
   map.
-
-- **11.3.1 Update operations:**
+- ** 11.4 Splay trees**:
+  - Splaying: move-to-root, performed at the bottommost.
+  When to splay? For a key k, if k is found at position p, or if we end up in a leaf of a unsuccessful
+  search. When inserted a new node, when deleting a key k.
+- **11.5 (2,4) Trees**: Multiway Search tree. Internal nodes have more than 2 children.
 

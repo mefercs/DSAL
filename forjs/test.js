@@ -1,58 +1,32 @@
-function isSorted(a){
-  for (let i = 0; i < a.length - 1; i++) {
-    if (a[i] > a[i + 1]) {
-      return false;
+function bfs(graph, root) {
+  // Distance object returned
+  var nodesLen = {};
+  // Set all distances to infinity
+  for (var i = 0; i < graph.length; i++) {
+    nodesLen[i] = Infinity;
+  }
+  nodesLen[root] = 0; // ...except root node
+  var queue = [root]; // Keep track of nodes to visit
+  var current; // Current node traversing
+  // Keep on going until no more nodes to traverse
+  while (queue.length !== 0) {
+    current = queue.shift();
+    // Get adjacent nodes from current node
+    var curConnected = graph[current]; // Get layer of edges from current
+    var neighborIdx = []; // List of nodes with edges
+    var idx = curConnected.indexOf(1); // Get first edge connection
+    while (idx !== -1) {
+      neighborIdx.push(idx); // Add to list of neighbors
+      idx = curConnected.indexOf(1, idx + 1); // Keep on searching
     }
-  }
-  return true;
-}
-// Generate a randomly filled array
-function createRandomArray(size = 5){
-  let a = new Array(size);
-  for (let i = 0; i < size; i++) {
-    a[i] = Math.floor(Math.random() * 100);
-  }
-  return a;
-}
-const array = createRandomArray(25);
-
-var MinHeap = function() {
-  // Only change code below this line
-  this.heap = [null];
-
-  // Insert
-  this.insert = (element) => {
-    this.heap.push(element);
-
-    let heap = this.heap;
-    function maxHeap(index) {
-      let parent = Math.floor(index/2);
-      if (element < heap[parent] && index > 1) {
-        [heap[index], heap[parent]] = [heap[parent], heap[index]];
-        maxHeap(parent);
+    // Loop through neighbors and get lengths
+    for (var j = 0; j < neighborIdx.length; j++) {
+      // Increment distance for nodes traversed
+      if (nodesLen[neighborIdx[j]] === Infinity) {
+        nodesLen[neighborIdx[j]] = nodesLen[current] + 1;
+        queue.push(neighborIdx[j]); // Add new neighbors to queue
       }
     }
-    maxHeap(this.heap.length-1);
   }
-
-  // Remove
-  this.remove = () => {
-    let arr = [...this.heap];
-    let max = arr.splice(1, 1);
-    this.heap = [null];
-    for (let i = 1; i < arr.length; i++) {
-      this.insert(arr[i]);
-    }
-    return max[0];
-  }
-
-  // Sort
-  this.sort = (heap = this.heap) => {
-    let arr = [];
-    for (let i = 0; i < heap.length; i++) {
-      arr.push(this.remove());
-    }
-    return arr;
-  }
-  // Only change code above this line
-};
+  return nodesLen;
+}
